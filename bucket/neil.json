@@ -12,10 +12,11 @@
         }
     },
     "pre_install": [
-        "Remove-Item \"$dir\\*\" -Recurse -Exclude 'neil'",
-        "Set-Content \"$dir\\neil.bat\" \"@bb.exe \"\"%~dp0neil\"\" %*\""
+        "Remove-Item \"$dir\\*\" -Recurse -Exclude 'neil'"
     ],
-    "bin": "neil.bat",
+    "bin": [
+        ["bb.exe", "neil", "\"$dir\\neil\""]
+    ],
     "checkver": {
         "url": "https://api.github.com/repos/babashka/neil/tags",
         "regex": "\"v([\\d.]+)\""

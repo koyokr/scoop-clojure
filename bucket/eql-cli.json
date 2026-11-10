@@ -12,10 +12,11 @@
         }
     },
     "pre_install": [
-        "Remove-Item \"$dir\\*\" -Recurse -Exclude 'eql'",
-        "Set-Content \"$dir\\eql.bat\" \"@bb.exe \"\"%~dp0eql\"\" %*\""
+        "Remove-Item \"$dir\\*\" -Recurse -Exclude 'eql'"
     ],
-    "bin": "eql.bat",
+    "bin": [
+        ["bb.exe", "eql", "\"$dir\\eql\""]
+    ],
     "checkver": {
         "url": "https://api.github.com/repos/lilactown/eql-cli/tags",
         "regex": "\"v([\\d.]+)\""

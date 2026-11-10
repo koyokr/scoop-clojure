@@ -10,8 +10,9 @@
             "hash": "e87ef9d62d1bad1f3af34dd3636d6a3d5caeb036d761681bd8e30b01b2a2b934"
         }
     },
-    "pre_install": "Set-Content \"$dir\\http-server.bat\" \"@bb.exe \"\"%~dp0http-server.jar\"\" %*\"",
-    "bin": "http-server.bat",
+    "bin": [
+        ["bb.exe", "http-server", "\"$dir\\http-server.jar\""]
+    ],
     "checkver": {
         "url": "https://api.github.com/repos/babashka/http-server/tags",
         "regex": "\"v([\\d.]+)\""
